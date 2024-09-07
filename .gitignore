@@ -1,0 +1,19 @@
+.idea/*
+
+# PyInstaller
+/dist/
+/build/
+/*.spec
+
+# Папка сборки (обычно создается PyInstaller)
+/build/
+
+# Временные файлы
+*.tmp
+*.egg-info/
+*.pyc
+__pycache__/
+
+# Виртуальная среда (если применимо)
+venv/
+env/

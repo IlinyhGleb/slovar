@@ -78,8 +78,8 @@ class TextChanger:
 
                 # Переключение на следующий текст через полный интервал времени
                 self.current_text_index = (self.current_text_index + 1) % len(self.texts)
-            # Запускаем следующий цикл
-            self.master.after(self.update_interval, self.change_text)
+        # Запускаем следующий цикл
+        self.master.after(self.update_interval, self.change_text)
 
     def add_text(self):
         new_text1 = self.text_entry1.get().strip()

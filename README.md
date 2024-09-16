@@ -34,8 +34,9 @@ python text_changer.py
 
 ## Установка
 ```bash
-pyinstaller --onefile main.py
-
+pyinstaller --noconsole --onefile main.py
+pyinstaller --noconsole --add-data "texts.json;." main.py
+pyinstaller main.spec
 
 ```
 

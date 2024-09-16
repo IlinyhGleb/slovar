@@ -1,8 +1,23 @@
 import tkinter as tk
 import json
 import os
+import sys
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 class TextChanger:
+    texts_file_path = resource_path("texts.json")
+
     def __init__(self, master):
         self.master = master
         self.current_text_index = 0
@@ -56,13 +71,13 @@ class TextChanger:
         self.change_text()  # Запускаем смену текста
 
     def load_texts(self):
-        if os.path.exists('texts.json'):
-            with open('texts.json', 'r', encoding='utf-8') as file:
+        if os.path.exists(self.texts_file_path):
+            with open(self.texts_file_path, 'r', encoding='utf-8') as file:
                 return json.load(file)
         return []
 
     def save_texts(self):
-        with open('texts.json', 'w', encoding='utf-8') as file:
+        with open(self.texts_file_path, 'w', encoding='utf-8') as file:
             json.dump(self.texts, file, ensure_ascii=False, indent=4)
 
     def update_interval_value(self, value):
@@ -130,7 +145,7 @@ class TextChanger:
 
 # Создаем главное окно
 root = tk.Tk()
-root.title("Изменяющийся текст с ползунком")
+root.title("Slovar")
 root.geometry("400x600")  # Устанавливаем исходную ширину и высоту окна
 
 # Создаем объект класса

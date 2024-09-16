@@ -27,7 +27,7 @@ setup(
     author='Gleb Ilinyh',
     author_email='gleb@ilinyh.ru',
     description='Мини-программа для запоминания слов',
-    long_description=open('README.md').read(),
+    long_description=open('README.md', 'r', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/IlinyhGleb/slovar',  # Укажите ссылку на ваш репозиторий
     cmdclass={'build_exe': PyInstallerCommand},
